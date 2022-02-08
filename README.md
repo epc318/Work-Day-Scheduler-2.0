@@ -16,10 +16,10 @@ A simple application that allows you to organize and optimize your work day by l
 * JavaScript
 
 ## URL
-Visit the applicaiton [HERE](https://epc318.github.io/Work-Day-Scheduler-2.0/)
+Visit the application [HERE](https://epc318.github.io/Work-Day-Scheduler-2.0/)
 
 ## Deployed Application Screenshot
-![Full page screenshot](Develop\images\screenshot.PNG)
+![Full page screenshot](Develop/images/screenshot.PNG)
 
 ## Contributions
 This project was made by Evan Carlson and contains references and material learned in the University of Minnesota Web Dev Bootcamp.
