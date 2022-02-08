@@ -4,15 +4,30 @@ let storeToDo = function() {
     localStorage.setItem("toDo",JSON.stringify(toDo));
 };
 
+
 $(".row").on("click", ".description", function() {
     let item = $(this).text().trim();
     if(!item) {
         item = $(this).val();
     }
-    let toDOInput = $("<textarea>").addClass("col-10 description").val(item);
-    $(this).replaceWith(toDOInput);
-    toDOInput.trigger("focus");
+    let toDoInput = $("<textarea>").addClass("col-10 description").val(item);
+
+    $(this).replaceWith(toDoInput);
+        toDoInput.trigger("focus");
 });
+
+
+$(".saveBtn").on("click", function() {
+    let item = $(this).closest(".row").find(".description");
+    let toDoInput = $(this).closest(".row").find(".description").val();
+    let timeInt = $("<div>").addClass("col-10 description").text(toDoInput);
+
+    $(item).replaceWith(timeInt);
+        let oid = $(this).closest(".row").find(".crunchTime").text();
+        toDo[oid] = toDoInput
+        storeToDo();
+});
+
 
 let enterToDo = function(key) {
  let timeInt = $(".row").find(".crunchTime");
@@ -25,20 +40,22 @@ let enterToDo = function(key) {
     }
 };
 
+
 let pullToDos = function() {
-    toDO = JSON.parse(localStorage.getItem("toDo"));
-    if(!toDO) {
-        toDO = {
+    toDo = JSON.parse(localStorage.getItem("toDo"));
+    if(!toDo) {
+        toDo = {
         "8AM": [],"9AM": [], "10AM": [],"11AM": [], "12PM": [],"1PM": [],"2PM": [],"3PM": [],"4PM": [],"5PM": [],
         }
     };
     for(key in toDo) {
-        enterTask(key);
+        enterToDo(key);
     }
 };
 
 
 pullToDos()
+
 
 // Show Current date
 $("#currentDate").text(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"))
