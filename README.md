@@ -29,7 +29,9 @@ Visit the application [HERE](https://epc318.github.io/Work-Day-Scheduler-2.0/)
 ![Full page screenshot](Develop/images/source_code_ex.PNG)
 
 ## Contributions
-This project was made by Evan Carlson and contains references and material learned in the University of Minnesota Web Dev Bootcamp.
+- This project was made by Evan Carlson and contains references and material learned in the University of Minnesota Web Dev Bootcamp.
+- The starter code repository, made by [Xandromus](https://github.com/Xandromus), can be accessed [HERE](https://github.com/coding-boot-camp/super-disco)
+
 
 No Outside Contributions are being accepted at this time.
 
