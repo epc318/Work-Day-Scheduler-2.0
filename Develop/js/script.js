@@ -19,10 +19,14 @@ $(".row").on("click", ".description", function() {
 });
 
 
-//changing div selection to the save button, however it clears when it is clicked more than once...
+//changing div selection to the save button, (fixed save clear issue)
 $(".saveBtn").on("click", function() {
     let item = $(this).closest(".row").find(".description");
     let toDoInput = $(this).closest(".row").find(".description").val();
+        if(!toDoInput) {
+            toDoInput = $(this).closest(".row").find(".description").text();
+        }
+
     let timeInt = $("<div>").addClass("col-10 description").text(toDoInput);
 
     $(item).replaceWith(timeInt);
