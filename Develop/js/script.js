@@ -1,10 +1,12 @@
-
+//creating ToDo item
 let toDo = {};
+//Saving ToDo itemto local storage so the information stays upon page refresh.
 let storeToDo = function() {
     localStorage.setItem("toDo",JSON.stringify(toDo));
 };
 
 
+//changing div selection to the description box and saving/replacing inital div element with new one (text/ToDO input)
 $(".row").on("click", ".description", function() {
     let item = $(this).text().trim();
     if(!item) {
@@ -17,6 +19,7 @@ $(".row").on("click", ".description", function() {
 });
 
 
+//changing div selection to the save button, however it clears when it is clicked more than once...
 $(".saveBtn").on("click", function() {
     let item = $(this).closest(".row").find(".description");
     let toDoInput = $(this).closest(".row").find(".description").val();
@@ -29,6 +32,7 @@ $(".saveBtn").on("click", function() {
 });
 
 
+//Fills page with with tasks from local storage
 let enterToDo = function(key) {
  let timeInt = $(".row").find(".crunchTime");
     for(let i = 0; i < timeInt.length; i++) {
@@ -41,6 +45,7 @@ let enterToDo = function(key) {
 };
 
 
+// Pulls all current tasks from local storage
 let pullToDos = function() {
     toDo = JSON.parse(localStorage.getItem("toDo"));
     if(!toDo) {
