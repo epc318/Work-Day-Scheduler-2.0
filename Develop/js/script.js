@@ -6,6 +6,22 @@ let storeToDo = function() {
 };
 
 
+//changing div selection to the save button, (fixed save clear issue)
+$(".saveBtn").on("click", function() {
+    let item = $(this).closest(".row").find(".description");
+    let toDoInput = $(this).closest(".row").find(".description").val();
+        if(!toDoInput) {
+            toDoInput = $(this).closest(".row").find(".description").text();
+        }
+
+    let timeInt = $("<div>").addClass("col-10 description").text(toDoInput);
+
+    $(item).replaceWith(timeInt);
+        let oid = $(this).closest(".row").find(".crunchTime").text();
+        toDo[oid] = toDoInput
+        storeToDo();
+});
+
 //changing div selection to the description box and saving/replacing inital div element with new one (text/ToDO input)
 $(".row").on("click", ".description", function() {
     let item = $(this).text().trim();
@@ -17,6 +33,7 @@ $(".row").on("click", ".description", function() {
     $(this).replaceWith(toDoInput);
         toDoInput.trigger("focus");
 });
+
 
 
 
