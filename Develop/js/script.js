@@ -1,13 +1,13 @@
 
 let toDo = {};
-let toDo = function() {
+let storeToDo = function() {
     localStorage.setItem("toDo",JSON.stringify(toDo));
 };
 
 $(".row").on("click", ".description", function() {
     let item = $(this).text().trim();
-    if(!task) {
-        task = $(this).val();
+    if(!item) {
+        item = $(this).val();
     }
     let toDOInput = $("<textarea>").addClass("col-10 description").val(item);
     $(this).replaceWith(toDOInput);
@@ -32,7 +32,7 @@ let pullToDos = function() {
         "8AM": [],"9AM": [], "10AM": [],"11AM": [], "12PM": [],"1PM": [],"2PM": [],"3PM": [],"4PM": [],"5PM": [],
         }
     };
-    for(key in ToDo) {
+    for(key in toDo) {
         enterTask(key);
     }
 };
