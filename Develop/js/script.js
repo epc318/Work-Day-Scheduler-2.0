@@ -1,10 +1,18 @@
-// Show Current date
-$("#currentDate").text(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"))
 
 let toDo = {};
 let toDo = function() {
     localStorage.setItem("toDo",JSON.stringify(toDo));
 };
+
+$(".row").on("click", ".description", function() {
+    let item = $(this).text().trim();
+    if(!task) {
+        task = $(this).val();
+    }
+    let toDOInput = $("<textarea>").addClass("col-10 description").val(item);
+    $(this).replaceWith(toDOInput);
+    toDOInput.trigger("focus");
+});
 
 let enterToDo = function(key) {
  let timeInt = $(".row").find(".crunchTime");
@@ -29,4 +37,8 @@ let pullToDos = function() {
     }
 };
 
+
 pullToDos()
+
+// Show Current date
+$("#currentDate").text(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"))
